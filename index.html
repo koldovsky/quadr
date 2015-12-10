@@ -3,13 +3,35 @@
   <head>
       <meta charset="utf-8">
       <script type="text/javascript" src="quadr.js"></script>
+      <script>
+          function init() {
+              buttonCalc.addEventListener('click', calc, false);
+          }
+          function calc(e) {
+              e.preventDefault();
+              var a = Number(inputA.value);
+              var b = Number(inputB.value);
+              var c = Number(inputC.value);
+              result.innerHTML = quadr(a,b,c);
+          }
+      </script>
   </head>
-  <body>
+  <body onload="init();">
+      <h1>Розв'язок квадратного рівняння ax^2+bx+c=0</h1>
       <p id="result">
         Тут має бути результат
       </p>
-      <button onclick="result.innerHTML=quadr(5,-23,12);">
-         Розрахувати
-      </button>
+      <form>
+          <p>Введіть параметри</p>
+          <label for="a">a=</label>
+          <input id="inputA" type="text" name="a"/>
+          <label for="b">b=</label>
+          <input id="inputB" type="text" name="b"/>
+          <label for="c">c=</label>
+          <input id="inputC" type="text" name="c"/>
+          <button id="buttonCalc">
+             Розрахувати
+          </button>
+      </form>
   </body>
 </html>
